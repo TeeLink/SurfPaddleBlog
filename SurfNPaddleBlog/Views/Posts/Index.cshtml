@@ -1,51 +1,88 @@
 ﻿@model IEnumerable<SurfNPaddleBlog.Models.Post>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index"; var firstPost = Model.First();
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageLink)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageLink)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+<div class="container wrapper">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+            <h2 class="title">@firstPost.Title)"</h2>
+            <img class="smallround img-circle" src="http://i.imgur.com/61sKsaN.jpg">
+            <p> <font color=" #336699">@firstPost.Author</font> - March 29, 1985</p>
+        </div>
+        <div class="col-md-3 center">
+            <img class="round img-circle" src="http://i.imgur.com/61sKsaN.jpg">
+            <br>
+            <div class="group">
+                <h4 class="title">@firstPost.Author</h4>
+                <p>Twitter Facebook Instagram</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1 body">
+            <p>@firstPost.Body)</p>
+            <h2>| WHOA, THAT'S RADICAL!</h2>
+        </div>
+        <div class="col-md-4 col-md-offset-1">
+            <img class="img-responsive" src=@firstPost.ImageLink>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+            <p class="body">
+
+            </p>
+            <button class="button">Read Comments</button>
+            <button class="button">Read Later</button>
+            <button class="button">Share Post</button>
+        </div>
+        <div class="div col-md-4">
+            <br>
+            <br>
+            <h5 class="title">About My Blog</h5>
+            <p class="body ">
+                This is my daily blog where I put all my thoughts, musings, opinions and idea. If you don't like it, there's plenty of internet out there.
+            </p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<hr>
+<br>
+<div class="row">
+    <h1 class="col-md-8 col-md-offset-4">
+        <font color=" #336699">MORE POPULAR POSTS</font>
+    </h1>
+</div>
+@foreach (var p in Model.Skip(1).Take(4))
+{
+    <div class="row-fluid">
+        <div class="col-md-3 morph ">
+            <a href="@Url.Action("Details", new {Id = p.Id})">
+                <img class="posts pic" src="@p.ImageLink">
+            </a>
+        </div>
+
+    </div>
 }
 
-</table>
+    <container>
+        <div class="foot">
+            <footer>
+                <p class="pull-right">
+                    <a href="@Model.First()">First |</a>
+                    Prev. | Next |
+                    <a href="@Model.Last()">Last</a> 
+                </p>
+            </footer>
+            <p center="center"> C# BEE Inc Copyright 2016, All Right Reserved</p>
+            <p><img class="smaller" src="http://2.gravatar.com/avatar/2cbe8872c9c4dfe423491297f4a14546?s=200&d=identicon&r=G"></p>
+        </div>
+    </container>
+

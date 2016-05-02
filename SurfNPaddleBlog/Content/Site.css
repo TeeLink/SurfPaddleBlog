@@ -22,3 +22,122 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.round {
+  width: 8vw;
+  height: 8vw;
+  float: both;
+}
+
+.smallround {
+  width: 2vw;
+  height: 2vw;
+  float: left;
+}
+
+.body {
+  font-size: 1em;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.foot {
+  padding: 1vw;
+  background-color: #336699;
+}
+
+.textbox {
+    
+    height:200px;
+    font-size:14pt;
+}
+}
+
+.center {
+  text-align: center;
+}
+
+.pic {
+    width: auto;
+    height: auto; 
+}
+
+.title {
+  color: #336699;
+  font-weight: bold;
+}
+
+.posts {
+  max-width: 100%;
+  height: auto;
+  position: center;
+  float: both;
+}
+
+.jumbotron {
+  background-image: url('http://hdwallnpics.com/wp-content/gallery/simple-background-images-for-websites/web%20page%20background.jpg');
+  height: 100%;
+}
+
+.smaller {
+  height: 3em;
+  width: 3em;
+}
+
+.group {
+  clear: both;
+}
+
+.button {
+    position: relative;
+    background-color: lightgrey;
+    border: none;
+    font-size: 15px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 100px;
+    text-align: center;
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer; 
+}
+
+.button:after {
+    content: "";
+    background: #336699;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.morph {
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+ 
+.morph:hover {
+  border-radius: 50%;
+  -webkit-transform: rotate(360deg);
+     -moz-transform: rotate(360deg);
+       -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
